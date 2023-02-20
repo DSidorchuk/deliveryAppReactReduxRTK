@@ -1,0 +1,9 @@
+
+.store {
+    &__grid {
+        margin-top: 30px;
+        display: grid;
+        grid-template-columns: 200px 900px;
+        column-gap: 40px;
+    }
+}

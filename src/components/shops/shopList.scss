@@ -1,0 +1,33 @@
+
+.shops {
+    border-radius: 20px;
+    background-color: #E85A4F;
+    min-height: 400px;
+
+    &__list {
+        padding: 20px;
+        border-radius: 20px;
+        text-align: left;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 40px;
+        color: #EAE7DC;
+        cursor: pointer;
+    }
+
+    &__item {
+        padding-left: 10px;
+        border-radius: 10px;
+        &_active {
+            box-shadow: 0 0 2px white;
+        }
+        &_non-active {
+            pointer-events:none; 
+            opacity:0.6;   
+        }
+        &:hover {
+            transition: all 0.6s;
+            scale: 110%;
+        }
+    }
+}
