@@ -1,0 +1,60 @@
+
+.basketItem {
+    display: grid;
+    grid-template-columns: 360px 360px;
+    column-gap: 40px;
+    height: 60px;
+    &__descr {
+        display: grid;
+        grid-template-columns: 100px 260px;
+    }
+    &__img {
+        display: block;
+        width: 100%;
+        border-radius: 10px;
+        object-fit: cover
+    }
+    &__title {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        font-weight: 700;
+    }
+    &__volume {
+        display: grid;
+        grid-template-columns: repeat(3, 100px);
+        column-gap: 15px;
+    }
+    &__price {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+    }
+    &__qtty {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &-incr, &-decr{
+            padding: 0;
+            width: 30px;
+            height: 30px;
+            color: #EAE7DC;
+            font-size: 20px;
+            font-weight: 700;
+            text-align: center;
+            background-color: #E85A4F;
+            border: none;
+            border-radius: 100%
+        }
+        &-num {
+            font-weight: 700;
+        }
+    }
+    &__amount {
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        text-align: center;
+    }
+}

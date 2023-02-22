@@ -1,37 +1,46 @@
-import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { setOrderFromShop, addToBasket } from '../goods/goodsSlice';
 import './goodsItem.scss'
 
 
-const GoodsItem = ({name, description, image, price, addItem }) => {
+const GoodsItem = ({item}) => {
 
-    const [qtty, setQtty] = useState(0);
-    const emptyBasket = useSelector(state => state.goods.basket.length);
+    const {id, name, description, image, price} = item;
+    const activeShop = useSelector(state => state.shops.activeShop);
+    const orderFromShop = useSelector(state => state.goods.orderFromShop);
+    const basket = useSelector(state => state.goods.basket);
+    const dispatch = useDispatch();
 
-    // To clear counter when basket was cleared 
-    useEffect(() => {
-        if (!emptyBasket) {
-            setQtty(0);
+    // Show quantity of item added to basket
+    const basketItem = basket.filter(item => item.id === id)[0];
+    const qtty = basketItem ? basketItem.qtty : '';
+
+    const shortDescr = description.length > 110 
+    ? description.slice(0, 110) + '...'
+    : description;
+
+    // Goods can be added from single shop
+    const addItemToBasket = (item) => {
+        if (!orderFromShop) {
+            dispatch(setOrderFromShop(activeShop));
+            dispatch(addToBasket(item))
+        } else if (orderFromShop === activeShop) {
+            dispatch(addToBasket(item))
         }
-    }, [emptyBasket])
+    };
 
-
-    const onClick = () => {
-        setQtty(qtty => qtty + 1); // show counter of added to basket items
-        addItem();
-    }
 
     return (
         <div className="goods__item">
             <img className="goods__item-img" src={image} alt={name} />
             <h3 className="goods__item-title">{name}</h3>
-            <p className='goods__item-descr'>{description}</p>
+            <p className='goods__item-descr'>{shortDescr}</p>
             <div className='goods__item-order'>
                 <p className='goods__item-price'>{price} ГРН</p>
-                <p className='goods__item-qtty'>{qtty ? `(${qtty})` : ''}</p>
+                <p className='goods__item-qtty'>{qtty}</p>
                 <button className="goods__item-btn"
-                        onClick={onClick}>
+                        onClick={() => addItemToBasket(item)}>
                     заказать
                 </button>
             </div>
