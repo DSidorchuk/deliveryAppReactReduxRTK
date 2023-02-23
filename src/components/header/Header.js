@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { clearBasket } from '../goods/goodsSlice';
+import { clearBasket } from '../goodsList/goodsSlice';
 
 import './header.scss';
 
@@ -43,7 +43,7 @@ const Header = () => {
                             </NavLink>
                         </li>
                         <li className='header__menu-item'>
-                            <NavLink to="/history" 
+                            <NavLink to="/coupones" 
                                      style={({isActive}) => 
                                             isActive ? {color: '#E85A4F'} : undefined}>
                                 Coupones

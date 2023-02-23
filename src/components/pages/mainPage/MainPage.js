@@ -1,6 +1,7 @@
-import './store.scss';
-import ShopList from '../shops/ShopList';
-import Goods from '../goods/Goods';
+import ShopList from '../../shopList/ShopList';
+import Goods from '../../goodsList/Goods';
+
+import './mainPage.scss';
 
 const MainPage = () => {
     return (

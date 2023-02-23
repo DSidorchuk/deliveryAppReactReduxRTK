@@ -5,7 +5,8 @@ const initialState = {
     goodsList: [],
     goodsLoadingStatus: 'idle',
     orderFromShop: '', // Goods can be ordered only from one shop
-    basket: []
+    basket: [],
+    basketAmount: 0
 }
 
 export const fetchGoods = createAsyncThunk(
@@ -35,6 +36,14 @@ const indexOfItem = (arr, id) => {
     return index;
 }
 
+const calculateAmount = (arr) => {
+    let amount = 0;
+    arr.forEach(item => {
+        amount+= item.qtty * item.price;
+    })
+    return amount;
+}
+
 const goodsSlice = createSlice({
     name: "goods",
     initialState,
@@ -47,23 +56,24 @@ const goodsSlice = createSlice({
             } else {
                 state.basket[index].qtty++;
             }
-        },
-        removeFromBasket: (state, action) => {
-            state.basket = state.basket.filter(item => item.id !== action.payload)
+            state.basketAmount = calculateAmount(state.basket);
         },
         clearBasket: state => {
             state.basket = [];
             state.orderFromShop = '';
+            state.basketAmount = 0;
         },
         incrQtty: (state, action) => {
             const index = indexOfItem(state.basket, action.payload);
             state.basket[index].qtty++;
+            state.basketAmount = calculateAmount(state.basket);
         },
         decrQtty: (state, action) => {
             const index = indexOfItem(state.basket, action.payload);
             state.basket[index].qtty === 1
                 ? state.basket = state.basket.filter(item => item.id !== action.payload)
                 : state.basket[index].qtty--;
+            state.basketAmount = calculateAmount(state.basket);
         }
     },
     extraReducers: builder => {
@@ -84,7 +94,6 @@ export default reducer;
 
 export const {setOrderFromShop,
               addToBasket,
-              removeFromBasket,
               clearBasket,
               incrQtty,
               decrQtty} = actions;

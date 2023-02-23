@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 
-import { incrQtty, decrQtty } from "../goods/goodsSlice";
+import { incrQtty, decrQtty } from "../goodsList/goodsSlice";
+
 import "./basketItem.scss";
 
 const BasketItem = ({id, image, name, price, qtty}) => {

@@ -1,10 +1,35 @@
+import { useSelector, useDispatch } from 'react-redux';
+import { v4 as uuidv4 } from 'uuid';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import "./form.scss";
+
+import { clearBasket } from '../goodsList/goodsSlice';
+import { postOrder } from '../historyList/historySlice';
+
+import "./basketForm.scss";
 
 const CustomerForm = () => {
 
+    const basket = useSelector(state => state.goods.basket);
+    const amount = useSelector(state => state.goods.basketAmount);
+    const sending = useSelector(state => state.history.orderPostStatus)
+    const dispatch = useDispatch();
+
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
+
+    const sendOrder = (formData) => {
+        if (basket.length) {
+            const order = {
+                ...formData,
+                id: uuidv4(),
+                orderList: basket,
+                amount,
+                date: new Date().toString()
+            };
+            dispatch(postOrder(order));
+            dispatch(clearBasket());
+        }
+    }
 
     return (
         <div className='form'>
@@ -28,7 +53,11 @@ const CustomerForm = () => {
                     address: Yup.string()
                                 .min(20, "Мінімум 20 символів")
                                 .required("Необхідно заповнити")
-                })}>
+                })}
+                onSubmit = {(data, {resetForm}) => {
+                    sendOrder(data);
+                    resetForm();
+                }}>
                 <Form className='form__grid'>
                     <div className='form__input'>
                         <label htmlFor='name'>Ваше ім'я</label>
@@ -63,7 +92,8 @@ const CustomerForm = () => {
                         <ErrorMessage className="form__error" name="address" component="div"/>
                     </div>
                     <button type='submit' 
-                            className='form__btn'>
+                            className='form__btn'
+                            disabled={sending === "sending"}>
                                 Підтвердити замовлення
                     </button>
                 </Form>

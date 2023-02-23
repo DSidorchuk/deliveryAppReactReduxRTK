@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 
-import { setOrderFromShop, addToBasket } from '../goods/goodsSlice';
+import { setOrderFromShop, addToBasket } from '../goodsList/goodsSlice';
+
 import './goodsItem.scss'
 
 

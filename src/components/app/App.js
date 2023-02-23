@@ -1,9 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Header from "../header/Header";
-import MainPage from "../pages/MainPage";
-import ShoppingCartPage from "../pages/ShoppingCartPage";
-import SingleGoodsItemPage from "../pages/SingleGoodsItemPage";
+import MainPage from "../pages/mainPage/MainPage";
+import ShoppingCartPage from "../pages/shoppingCartPage/ShoppingCartPage";
+import HistoryPage from "../pages/historyPage/HistoryPage";
 
 const App = () => {
   return (
@@ -13,7 +13,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<MainPage/>}/>
           <Route path="/shoppingcart" element={<ShoppingCartPage/>}/>
-          <Route path="/:shopId/:id" element={<SingleGoodsItemPage/>}/>
+          <Route path="/history" element={<HistoryPage/>}/>
         </Routes>
       </div>
     </BrowserRouter>
