@@ -1,0 +1,48 @@
+
+
+.history {
+    &__item {
+        &:after {
+            content: '';
+            margin: 0 auto;
+            margin-top: 10px;
+            display: block;
+            width: 100%;
+            height: 1px;
+            background-color: #E98074;
+
+        }
+        &-data {
+            display: flex;
+            justify-content: space-between;
+        }
+        &-date, &-amount {
+            font-size: 17px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        &-id {
+            color: #8E8D8A;
+        }
+        // &-amount {
+        //     font-size: 17px;
+        //     font-weight: 700;
+        // }
+        &-address {
+            margin-top: 5px;
+        }
+        &-shop {
+            margin-top: 5px;
+            color: #E98074;
+        }
+        &-goods {
+            list-style: none;
+        }
+        &-product {
+            margin-left: 10px;
+            display: flex;
+            justify-content: space-between;
+            width: 320px;
+        }
+    }
+}

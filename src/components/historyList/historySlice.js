@@ -5,7 +5,8 @@ const initialState = {
     orders: [],
     presentOrders: [],
     ordersOfUser: [],
-    orderPostStatus: 'idle'
+    orderPostStatus: 'idle',
+    ordersLoadingStatus: 'idle'
 }
 
 export const postOrder = createAsyncThunk(
@@ -16,11 +17,21 @@ export const postOrder = createAsyncThunk(
     }
 );
 
+export const getOrders = createAsyncThunk(
+    "history/getOrders",
+    () => {
+        const {request} = useHttp();
+        return request(`http://localhost:3001/orders`);
+    }
+)
+
 const historySlice = createSlice({
     name: "history",
     initialState,
     reducers: {
-        getUserOrders: (state, action) => {}
+        checkUserOrders: (state, action) => {
+            state.ordersOfUser = state.orders.filter(item => item.phone === action.payload.phone);
+        }
     },
     extraReducers: builder => {
         builder
@@ -28,13 +39,22 @@ const historySlice = createSlice({
             .addCase(postOrder.fulfilled, (state, action) => {
                 state.orderPostStatus = "idle";
                 state.presentOrders.push(action.payload);
-                console.log(action.payload);
             })
             .addCase(postOrder.rejected, state => {state.orderPostStatus = "error"})
+            
+            .addCase(getOrders.pending, state => {state.ordersLoadingStatus = "sending"})
+            .addCase(getOrders.fulfilled, (state, action) => {
+                state.ordersLoadingStatus = "idle";
+                state.orders = action.payload;
+            })
+            .addCase(getOrders.rejected, state => {state.ordersLoadingStatus = "error"})
+            .addDefaultCase(() => {});
     }
 });
 
 const {actions, reducer} = historySlice;
+
+export const {checkUserOrders} = actions;
 
 export default reducer;
 

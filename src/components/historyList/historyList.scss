@@ -1,0 +1,27 @@
+
+.history{
+    &__list {
+        margin: 0 auto;
+        padding: 30px 20px;
+        display: grid;
+        grid-template-rows: repeat(2, minmax(120px, auto));
+        row-gap: 30px;
+        width: 100%;
+        border-radius: 20px;
+        border: 1px solid  #E85A4F;
+
+        &-title {
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #E85A4F;
+        }
+        &-grid {
+            margin-top: 15px;
+            display: grid;
+            grid-template-rows: minmax(120px, auto);
+            grid-auto-rows: minmax(120px, auto);
+            row-gap: 15px;
+        }
+    }
+}

@@ -1,5 +1,5 @@
 import ShopList from '../../shopList/ShopList';
-import Goods from '../../goodsList/Goods';
+import GoodsList from '../../goodsList/GoodsList';
 
 import './mainPage.scss';
 
@@ -9,7 +9,7 @@ const MainPage = () => {
             <div className="container">
                 <div className="store__grid">
                     <ShopList/>
-                    <Goods/>
+                    <GoodsList/>
                 </div>
             </div>
         </section>

@@ -1,0 +1,9 @@
+
+.history {
+    &__grid {
+        margin-top: 30px;
+        display: grid;
+        grid-template-rows: 70px 1fr;
+        row-gap: 40px;
+    }
+}

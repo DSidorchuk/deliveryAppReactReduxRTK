@@ -8,10 +8,11 @@ import { postOrder } from '../historyList/historySlice';
 
 import "./basketForm.scss";
 
-const CustomerForm = () => {
+const BasketForm = () => {
 
     const basket = useSelector(state => state.goods.basket);
     const amount = useSelector(state => state.goods.basketAmount);
+    const shop = useSelector(state => state.goods.orderFromShop);
     const sending = useSelector(state => state.history.orderPostStatus)
     const dispatch = useDispatch();
 
@@ -23,6 +24,7 @@ const CustomerForm = () => {
                 ...formData,
                 id: uuidv4(),
                 orderList: basket,
+                shop,
                 amount,
                 date: new Date().toString()
             };
@@ -45,6 +47,7 @@ const CustomerForm = () => {
                               .min(2, "Мінімум 2 символи")
                               .required("Необхідно заповнити"),
                     phone: Yup.string()
+                              .min(10, "Неповний номер")
                               .matches(phoneRegExp, "Некоректний номер")
                               .required("Необхідно заповнити"),
                     email: Yup.string()
@@ -103,4 +106,4 @@ const CustomerForm = () => {
 
 }
 
-export default CustomerForm;
+export default BasketForm;

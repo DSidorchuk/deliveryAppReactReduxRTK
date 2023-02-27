@@ -2,16 +2,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import {fetchGoods } from './goodsSlice';
+import {fetchGoods} from './goodsSlice';
 import GoodsItem from '../goodsItem/GoodsItem';
 import Spinner from '../spinner/Spinner';
 import Error from '../error/Error';
 
-import './goods.scss';
+import './goodsList.scss';
 
 
 
-const Goods = () => {
+const GoodsList = () => {
 
     const goodsList = useSelector(state => state.goods.goodsList);
     const goodsLoadingStatus = useSelector(state => state.goods.goodsLoadingStatus);
@@ -48,4 +48,4 @@ const Goods = () => {
     )
 }
 
-export default Goods;
+export default GoodsList;
