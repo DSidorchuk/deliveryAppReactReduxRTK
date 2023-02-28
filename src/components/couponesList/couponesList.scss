@@ -1,0 +1,26 @@
+
+
+.coupones {
+    &__list{
+        margin: 0 auto;
+        margin-top: 30px;
+        display: grid;
+        grid-template-rows: repeat(3, 60px);
+        grid-auto-rows: 60px;
+        row-gap: 30px;
+        width: 800px;
+        &-item{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #8E8D8A;
+            border-radius: 14px;
+            text-align: center;
+            &:nth-child(odd) {
+                background-color: #E85A4F;
+                border: none;
+                color: #EAE7DC;
+            }
+        }
+    }
+}

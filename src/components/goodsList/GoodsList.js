@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import {fetchGoods} from './goodsSlice';
+import {fetchGoods, fetchCoupones} from './goodsSlice';
 import GoodsItem from '../goodsItem/GoodsItem';
 import Spinner from '../spinner/Spinner';
 import Error from '../error/Error';
@@ -20,6 +20,7 @@ const GoodsList = () => {
 
     useEffect(() => {
         dispatch(fetchGoods(activeShop));
+        dispatch(fetchCoupones());
         // eslint-disable-next-line
     }, [activeShop]);
 

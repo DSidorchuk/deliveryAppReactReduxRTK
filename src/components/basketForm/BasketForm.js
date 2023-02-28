@@ -12,6 +12,7 @@ const BasketForm = () => {
 
     const basket = useSelector(state => state.goods.basket);
     const amount = useSelector(state => state.goods.basketAmount);
+    const discount = useSelector(state => state.goods.discount);
     const shop = useSelector(state => state.goods.orderFromShop);
     const sending = useSelector(state => state.history.orderPostStatus)
     const dispatch = useDispatch();
@@ -25,7 +26,7 @@ const BasketForm = () => {
                 id: uuidv4(),
                 orderList: basket,
                 shop,
-                amount,
+                amount: amount + discount,
                 date: new Date().toString()
             };
             dispatch(postOrder(order));

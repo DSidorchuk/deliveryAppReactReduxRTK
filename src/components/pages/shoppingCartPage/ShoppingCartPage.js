@@ -1,13 +1,12 @@
-import { useSelector } from 'react-redux';
 
 import BasketForm from '../../basketForm/BasketForm';
 import Basket from '../../basket/Basket';
+import BasketAmount from '../../basketAmount/BasketAmount';
 
 import './shoppingCartPage.scss'
 
 const ShoppingCartPage = () => {
 
-    const basketAmount = useSelector(state => state.goods.basketAmount);
 
     return (
         <section className='cart'>
@@ -16,10 +15,7 @@ const ShoppingCartPage = () => {
                     <BasketForm/>
                     <Basket/>
                 </div>
-                <div className='cart__amount'>
-                    <p>TOTAL AMOUNT: </p>
-                    <div className='cart__amount-num'>{`${basketAmount} ГРН`}</div>
-                </div>
+                <BasketAmount/>
             </div>
         </section>
 

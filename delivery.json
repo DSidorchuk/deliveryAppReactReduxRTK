@@ -412,6 +412,50 @@
       "shop": "mcdonalds",
       "amount": 50,
       "date": "Sat Feb 25 2023 16:36:20 GMT+0200 (Восточная Европа, стандартное время)"
+    },
+    {
+      "name": "Daniil",
+      "phone": "380635834623",
+      "email": "sugardaddy1488@proton.me",
+      "address": "ttttttttttttttttttttttttttttttttt",
+      "id": "83b4d2fa-ff81-4aeb-a814-3f5134267af0",
+      "orderList": [
+        {
+          "id": "bitesbbq",
+          "name": "Байтс Барбекю",
+          "description": "Соковиті гострі шматочки курочки у хрусткій паніровці з соусом барбекю.",
+          "image": "https://www.kfc-ukraine.com/admin/files/4131.jpg",
+          "price": "105",
+          "qtty": 1
+        },
+        {
+          "id": "spicywings",
+          "name": "Гострі Крильця",
+          "description": "8 гострих курячих крилець в хрусткій паніровці",
+          "image": "https://www.kfc-ukraine.com/admin/files/4096.png",
+          "price": "160",
+          "qtty": 1
+        },
+        {
+          "id": "spicystrip",
+          "name": "Стріпси Гострі",
+          "description": "8 шматочків ніжного курячого філе, обсмаженого в гострій хрусткій паніровці",
+          "image": "https://www.kfc-ukraine.com/admin/files/4098.png",
+          "price": "165",
+          "qtty": 1
+        },
+        {
+          "id": "chickenleg",
+          "name": "Ніжки",
+          "description": "4 ніжки обсмажені в хрусткій паніровці",
+          "image": "https://www.kfc-ukraine.com/admin/files/3790.jpg",
+          "price": "145",
+          "qtty": 1
+        }
+      ],
+      "shop": "kfc",
+      "amount": 575,
+      "date": "Tue Feb 28 2023 21:15:50 GMT+0200 (Восточная Европа, стандартное время)"
     }
   ],
   "coupones": [
@@ -423,7 +467,8 @@
       "amount": 0,
       "everyN": 0,
       "discount": 0.2,
-      "discountForItem": ""
+      "discountForItem": "",
+      "description": "Кожного понеділка -20% на всі товари!"
     },
     {
       "id": "sushi",
@@ -433,7 +478,8 @@
       "amount": 500,
       "everyN": 0,
       "discount": 0.1,
-      "discountForItem": ""
+      "discountForItem": "",
+      "description": "Щодня при замовлені суші на суму понад 500 ГРН знижка -10%!"
     },
     {
       "id": "hamburger",
@@ -443,7 +489,8 @@
       "amount": 0,
       "everyN": 3,
       "discount": 0.3,
-      "discountForItem": "hamburger"
+      "discountForItem": "hamburger",
+      "description": "Щодня знижка на кожен третій гамбургер 30%!"
     }
   ]
 }

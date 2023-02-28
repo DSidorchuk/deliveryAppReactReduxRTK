@@ -6,14 +6,27 @@ const initialState = {
     goodsLoadingStatus: 'idle',
     orderFromShop: '', // Goods can be ordered only from one shop
     basket: [],
-    basketAmount: 0
+    basketAmount: 0,
+    coupones: [],
+    couponesLoadingStatus: 'idle',
+    discount: 0
 }
 
+
+// Fetch goods from the server
 export const fetchGoods = createAsyncThunk(
     "goods/fetchGoods",
     (shop) => {
         const {request} = useHttp();
         return request(`http://localhost:3001/store/${shop}`);
+    }
+)
+
+export const fetchCoupones = createAsyncThunk(
+    "goods/fetchCoupones",
+    () => {
+        const {request} = useHttp();
+        return request(`http://localhost:3001/coupones`);
     }
 )
 
@@ -62,6 +75,7 @@ const goodsSlice = createSlice({
             state.basket = [];
             state.orderFromShop = '';
             state.basketAmount = 0;
+            state.discount = 0;
         },
         incrQtty: (state, action) => {
             const index = indexOfItem(state.basket, action.payload);
@@ -74,7 +88,8 @@ const goodsSlice = createSlice({
                 ? state.basket = state.basket.filter(item => item.id !== action.payload)
                 : state.basket[index].qtty--;
             state.basketAmount = calculateAmount(state.basket);
-        }
+        },
+        setDiscount: (state, action) => {state.discount = action.payload}
     },
     extraReducers: builder => {
         builder
@@ -84,6 +99,12 @@ const goodsSlice = createSlice({
                 state.goodsLoadingStatus = "idle";
             })
             .addCase(fetchGoods.rejected, state => {state.goodsLoadingStatus = "error"})
+            .addCase(fetchCoupones.pending, state => {state.couponesLoadingStatus = "loading"})
+            .addCase(fetchCoupones.fulfilled, (state, action) => {
+                state.coupones = action.payload
+                state.couponesLoadingStatus = "idle";
+            })
+            .addCase(fetchCoupones.rejected, state => {state.couponesLoadingStatus = "error"})
             .addDefaultCase( () => {});
     }
 })
@@ -96,4 +117,5 @@ export const {setOrderFromShop,
               addToBasket,
               clearBasket,
               incrQtty,
-              decrQtty} = actions;
+              decrQtty,
+              setDiscount} = actions;
