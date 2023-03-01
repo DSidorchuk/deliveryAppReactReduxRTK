@@ -1,4 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { setOrderFromShop, addToBasket } from '../goodsList/goodsSlice';
 
@@ -34,7 +35,10 @@ const GoodsItem = ({item}) => {
 
     return (
         <div className="goods__item">
-            <img className="goods__item-img" src={image} alt={name} />
+            <Link to={`/${activeShop}/${id}`}>
+                <img className="goods__item-img" src={image} alt={name} />
+            </Link>
+            
             <h3 className="goods__item-title">{name}</h3>
             <p className='goods__item-descr'>{shortDescr}</p>
             <div className='goods__item-order'>

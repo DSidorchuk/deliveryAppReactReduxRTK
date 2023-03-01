@@ -11,12 +11,14 @@ import './goodsList.scss';
 
 
 
+
 const GoodsList = () => {
 
     const goodsList = useSelector(state => state.goods.goodsList);
     const goodsLoadingStatus = useSelector(state => state.goods.goodsLoadingStatus);
     const activeShop = useSelector(state => state.shops.activeShop);
     const dispatch = useDispatch();
+
 
     useEffect(() => {
         dispatch(fetchGoods(activeShop));
