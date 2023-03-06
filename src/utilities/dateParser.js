@@ -1,5 +1,5 @@
 
-
+// Receive date and translate it to Ukraininan and change format
 export const dateParser = (date) => {
     let str = date.split(' ', 5);
     return `${weekDay(str[0])} ${str[2]}.${month(str[1])}.${str[3]} ${str[4]}`;
@@ -54,5 +54,3 @@ function month(str) {
         default: return str;
     }
 }
-
-// "Thu Feb 23 2023 20:46:31 GMT+0200 (Восточная Европа, стандартное время)"

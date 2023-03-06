@@ -4,12 +4,9 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 import {fetchGoods, fetchCoupones} from './goodsSlice';
 import GoodsItem from '../goodsItem/GoodsItem';
-import Spinner from '../spinner/Spinner';
-import Error from '../error/Error';
+import { setContent } from '../../utilities/setContent';
 
 import './goodsList.scss';
-
-
 
 
 const GoodsList = () => {
@@ -26,29 +23,30 @@ const GoodsList = () => {
         // eslint-disable-next-line
     }, [activeShop]);
 
-    const content = goodsList.map((item) => {
-        return (
-            <CSSTransition key={item.id}
-                           timeout={300}
-                           classNames="goods__item">
-                <GoodsItem key={item.id} 
-                           item={item}/>
-            </CSSTransition>
-        )
-    })
+    const createContent = (list) => {
+        return list.map((item) => {
+                        return (
+                            <CSSTransition timeout={300}
+                                            classNames="goods__item">
+                                <GoodsItem key={item.id} 
+                                            item={item}/>
+                            </CSSTransition>
+                        )
+                    });
+    }
 
-    const loading = goodsLoadingStatus === 'loading' ? <Spinner/> : null;
-    const error = goodsLoadingStatus === 'error' ? <Error/> : null;
+    const content = setContent(goodsLoadingStatus,createContent, goodsList);
+
 
     return (
         <div className="goods">
-            {loading}
-            {error}
-            <TransitionGroup component={null}>
+            <TransitionGroup component={null}> 
                 {content}
             </TransitionGroup>
+            
         </div>
     )
 }
 
 export default GoodsList;
+

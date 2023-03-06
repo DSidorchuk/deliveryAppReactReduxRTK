@@ -9,7 +9,9 @@ const initialState = {
     basketAmount: 0,
     coupones: [],
     couponesLoadingStatus: 'idle',
-    discount: 0
+    discount: 0,
+    product: '',
+    productLoadingStatus: 'idle'
 }
 
 
@@ -22,11 +24,21 @@ export const fetchGoods = createAsyncThunk(
     }
 )
 
+// Fetch coupones from the server
 export const fetchCoupones = createAsyncThunk(
     "goods/fetchCoupones",
     () => {
         const {request} = useHttp();
         return request(`http://localhost:3001/coupones`);
+    }
+)
+
+// Fetch single goods item data
+export const fetchProduct = createAsyncThunk(
+    "goods/fetchProduct",
+    (item) => {
+        const {request} = useHttp();
+        return request(`http://localhost:3001/${item}`);
     }
 )
 
@@ -95,8 +107,9 @@ const goodsSlice = createSlice({
         builder
             .addCase(fetchGoods.pending, state => {state.goodsLoadingStatus = "loading"})
             .addCase(fetchGoods.fulfilled, (state, action) => {
-                state.goodsList = action.payload
                 state.goodsLoadingStatus = "idle";
+                state.goodsList = action.payload
+                
             })
             .addCase(fetchGoods.rejected, state => {state.goodsLoadingStatus = "error"})
             .addCase(fetchCoupones.pending, state => {state.couponesLoadingStatus = "loading"})
@@ -105,6 +118,12 @@ const goodsSlice = createSlice({
                 state.couponesLoadingStatus = "idle";
             })
             .addCase(fetchCoupones.rejected, state => {state.couponesLoadingStatus = "error"})
+            .addCase(fetchProduct.pending, state => {state.productLoadingStatus = "loading"})
+            .addCase(fetchProduct.fulfilled, (state, action) => {
+                state.product = action.payload
+                state.productLoadingStatus = "idle";
+            })
+            .addCase(fetchProduct, state => {state.productLoadingStatus = "error"})
             .addDefaultCase( () => {});
     }
 })

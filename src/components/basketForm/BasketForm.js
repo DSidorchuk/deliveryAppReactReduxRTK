@@ -19,6 +19,7 @@ const BasketForm = () => {
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
+    
     const sendOrder = (formData) => {
         if (basket.length) {
             const order = {
@@ -34,6 +35,7 @@ const BasketForm = () => {
         }
     }
 
+    
     return (
         <div className='form'>
             <Formik
@@ -104,7 +106,6 @@ const BasketForm = () => {
             </Formik>
         </div>
     )
-
 }
 
 export default BasketForm;

@@ -1,9 +1,9 @@
+@import '../../style/base/variables.scss';
 
 .shops {
     border-radius: 20px;
-    background-color: #E85A4F;
+    background-color: $red-color-dark;
     min-height: 400px;
-
     &__list {
         padding: 20px;
         border-radius: 20px;
@@ -11,10 +11,9 @@
         font-size: 20px;
         font-weight: 700;
         line-height: 40px;
-        color: #EAE7DC;
+        color: $bg-color;
         cursor: pointer;
     }
-
     &__item {
         padding-left: 10px;
         border-radius: 10px;

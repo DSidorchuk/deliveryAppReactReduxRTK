@@ -5,6 +5,7 @@ import { clearBasket } from '../goodsList/goodsSlice';
 
 import './header.scss';
 
+
 const Header = () => {
 
     const emptyBasket = useSelector(state => state.goods.basket.length);
@@ -14,6 +15,7 @@ const Header = () => {
         dispatch(clearBasket());
     }
 
+    
     return (
         <header className='header'>
             <div className='container header__grid'>
@@ -23,7 +25,7 @@ const Header = () => {
                             <NavLink to="/"
                                      style={({isActive}) => 
                                             isActive ? {color: '#E85A4F'} : undefined}>
-                                Shops
+                                Заклади
                             </NavLink>
                         </li>
                         <li className={!emptyBasket 
@@ -32,21 +34,21 @@ const Header = () => {
                             <NavLink to="/shoppingcart" 
                                      style={({isActive}) => 
                                             isActive ? {color: '#E85A4F'} : undefined}>
-                                Shopping Cart
+                                кошик
                             </NavLink>
                         </li>
                         <li className='header__menu-item'>
                             <NavLink to="/history" 
                                      style={({isActive}) => 
                                             isActive ? {color: '#E85A4F'} : undefined}>
-                                History
+                                замовлення
                             </NavLink>
                         </li>
                         <li className='header__menu-item'>
                             <NavLink to="/coupones" 
                                      style={({isActive}) => 
                                             isActive ? {color: '#E85A4F'} : undefined}>
-                                Coupones
+                                акції
                             </NavLink>
                         </li>
                     </ul>
@@ -56,7 +58,7 @@ const Header = () => {
                                         ? "header__btn" 
                                         : "header__btn header__btn_active"}
                             onClick={onClick}>
-                        clear cart 
+                        очистити кошик 
                     </button>
                 </div>
             </div>

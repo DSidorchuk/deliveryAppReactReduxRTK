@@ -3,13 +3,13 @@ import BasketForm from '../../basketForm/BasketForm';
 import Basket from '../../basket/Basket';
 import BasketAmount from '../../basketAmount/BasketAmount';
 
-import './shoppingCartPage.scss'
+import './basketPage.scss'
 
-const ShoppingCartPage = () => {
 
+const BasketPage = () => {
 
     return (
-        <section className='cart'>
+        <div className='cart'>
             <div className='container'>
                 <div className='cart__grid'>
                     <BasketForm/>
@@ -17,9 +17,8 @@ const ShoppingCartPage = () => {
                 </div>
                 <BasketAmount/>
             </div>
-        </section>
-
+        </div>
     )
 }
 
-export default ShoppingCartPage;
+export default BasketPage;

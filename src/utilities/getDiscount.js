@@ -1,4 +1,5 @@
 
+// Check, calculate and choose biggest possible discount
 export const getDiscount = (basket, coupones, shop, basketAmount) => {
     const validCoupones = coupones.filter(item => checkCouponeValidity(item));
     if(!validCoupones.length) {

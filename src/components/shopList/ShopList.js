@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchShops, setActiveShop } from './shopListSlice';
-import Spinner from '../spinner/Spinner';
-import Error from '../error/Error';
+import { setContent } from '../../utilities/setContent';
 
 import './shopList.scss';
+
 
 const ShopList = () => {
 
@@ -15,6 +15,7 @@ const ShopList = () => {
     const shopsLoadingStatus = useSelector(state => state.shops.shopsLoadingStatus)
     const dispatch = useDispatch();
     
+
     useEffect(() => {
         dispatch(fetchShops());
         
@@ -26,42 +27,40 @@ const ShopList = () => {
         dispatch(setActiveShop(id));
     }
 
-    // Make li elements by shops names got from state
-    const content = shopsList.map(shop => {
+    const createContent = (list) => {
+        return list.map(shop => {
+            let clazz;
+            if(orderFromShop) {
+                clazz = shop.id === orderFromShop 
+                            ? "shops__item shops__item_active" 
+                            : "shops__item shops__item_non-active" 
+            } else {
+                clazz = shop.id === activeShop 
+                                ? "shops__item shops__item_active"
+                                : "shops__item";
+            }
+    
+            return (
+                <li className={clazz}
+                    key={shop.id}
+                    onClick={() => onClick(shop.id)}>
+                    {shop.name}
+                </li>
+            )
+        });
+    }
 
-        let clazz;
-        if(orderFromShop) {
-            clazz = shop.id === orderFromShop 
-                        ? "shops__item shops__item_active" 
-                        : "shops__item shops__item_non-active" 
-        } else {
-            clazz = shop.id === activeShop 
-                            ? "shops__item shops__item_active"
-                            : "shops__item";
-        }
+    const content = setContent(shopsLoadingStatus, createContent, shopsList);
 
-        return (
-            <li className={clazz}
-                key={shop.id}
-                onClick={() => onClick(shop.id)}>
-                {shop.name}
-            </li>
-        )
-    });
-
-    const loading = shopsLoadingStatus === 'loading' ? <Spinner/> : null;
-    const error = shopsLoadingStatus === 'error' ? <Error/> : null;
-
-
+    
     return (
         <div className="shops">
             <ul className='shops__list'>
-                {loading}
-                {error}
                 {content}
             </ul>
         </div>
     )
 }
+
 
 export default ShopList;

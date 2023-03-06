@@ -1,3 +1,4 @@
+@import '../../style/base/variables.scss';
 
 .basket {
     padding: 40px 20px;
@@ -5,6 +6,6 @@
     grid-template-rows: repeat(5, 80px);
     grid-auto-rows: 80px;
     row-gap: 10px;
+    border: 1px solid  $red-color-dark;
     border-radius: 20px;
-    border: 1px solid  #E85A4F;
 }

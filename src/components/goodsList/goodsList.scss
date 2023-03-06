@@ -1,13 +1,14 @@
+@import '../../style/base/variables.scss';
 
 .goods {
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 270px);
-    justify-content: center;
     grid-template-rows: repeat(3, 400px);
     grid-auto-rows: 400px;
     column-gap: 20px;
     row-gap: 20px;
+    justify-content: center;
+    border: 1px solid  $red-color-dark;
     border-radius: 20px;
-    border: 1px solid  #E85A4F;
 }

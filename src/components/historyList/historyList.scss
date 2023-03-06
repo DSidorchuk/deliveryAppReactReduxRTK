@@ -1,3 +1,4 @@
+@import '../../style/base/variables.scss';
 
 .history{
     &__list {
@@ -7,14 +8,13 @@
         grid-template-rows: repeat(2, minmax(120px, auto));
         row-gap: 30px;
         width: 100%;
+        border: 1px solid  $red-color-dark;
         border-radius: 20px;
-        border: 1px solid  #E85A4F;
-
         &-title {
-            font-size: 20px;
-            font-weight: 700;
             text-transform: uppercase;
-            color: #E85A4F;
+            font-size: 18px;
+            font-weight: 700;
+            color: $red-color-dark;
         }
         &-grid {
             margin-top: 15px;

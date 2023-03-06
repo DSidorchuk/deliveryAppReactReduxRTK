@@ -1,9 +1,10 @@
-
 import './error.scss';
 
+
 const Error = () => {
+    
     return (
-        <div className="error">Something went wrong...</div>
+        <div className="error">Упс, щось пішло не так ...</div>
     )
 }
 

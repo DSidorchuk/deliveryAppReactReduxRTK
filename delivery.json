@@ -272,6 +272,34 @@
       "shop": "mcdonalds",
       "amount": 135,
       "date": "Wed Mar 01 2023 21:08:43 GMT+0200 (Восточная Европа, стандартное время)"
+    },
+    {
+      "name": "Daniil",
+      "phone": "380635834623",
+      "email": "guiplen13@proton.me",
+      "address": "ttttttttttttttttttttttttttttttttt",
+      "id": "ee11a51f-6681-4bf1-9775-389acac1d4f1",
+      "orderList": [
+        {
+          "id": "hamburger",
+          "name": "Гамбургер",
+          "description": "Біфштекс із натуральної яловичини, цибуля, шматочок маринованого огірка, заправлені гірчицею і кетчупом, у запашній булочці з пшеничного борошна.",
+          "image": "https://s7d1.scene7.com/is/image/mcdonalds/Sdwch_Hamburger:product-header-desktop?wid=830&hei=456&dpr=off",
+          "price": "50",
+          "qtty": 1
+        },
+        {
+          "id": "cheeseburger",
+          "name": "Чізбургер",
+          "description": "Біфштекс із натуральної яловичини, шматочок сиру “Чеддер”, шматочок маринованого огірка та цибуля, заправлені гірчицею і кетчупом, у булочці з пшеничного борошна.",
+          "image": "https://s7d1.scene7.com/is/image/mcdonalds/Sdwch_Cheeseburger:product-header-desktop?wid=830&hei=458&dpr=off",
+          "price": "70",
+          "qtty": 1
+        }
+      ],
+      "shop": "mcdonalds",
+      "amount": 96,
+      "date": "Mon Mar 06 2023 20:14:13 GMT+0200 (Восточная Европа, стандартное время)"
     }
   ],
   "coupones": [

@@ -18,11 +18,12 @@ const GoodsItem = ({item}) => {
     const basketItem = basket.filter(item => item.id === id)[0];
     const qtty = basketItem ? basketItem.qtty : '';
 
+    // Show short descrtiption of item
     const shortDescr = description.length > 110 
     ? description.slice(0, 110) + '...'
     : description;
 
-    // Goods can be added from single shop
+    // Goods can be added from single shop only
     const addItemToBasket = (item) => {
         if (!orderFromShop) {
             dispatch(setOrderFromShop(activeShop));
@@ -46,7 +47,7 @@ const GoodsItem = ({item}) => {
                 <p className='goods__item-qtty'>{qtty}</p>
                 <button className="goods__item-btn"
                         onClick={() => addItemToBasket(item)}>
-                    заказать
+                    замовити
                 </button>
             </div>
         </div>

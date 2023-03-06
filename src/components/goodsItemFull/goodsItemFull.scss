@@ -1,4 +1,4 @@
-
+@import '../../style/base/variables.scss';
 
 .goods {
     &__full{
@@ -10,7 +10,7 @@
             display: block;
             width: 100%;
             object-fit: cover;
-            border: 1px solid #E85A4F;
+            border: 1px solid $red-color-dark;
             border-radius: 20px;
         }
         &-data {
@@ -18,11 +18,11 @@
             display: grid;
             grid-template-rows: 30px 1fr 30px;
             row-gap: 30px;
-            border: 1px solid #8E8D8A;
+            border: 1px solid $grey-color;
             border-radius: 20px;
             &:hover {
                 transition: all 0,5s;
-                border: 1px solid #E85A4F;
+                border: 1px solid $red-color-dark;
             }
         }
         &-title {
@@ -31,8 +31,8 @@
             font-weight: 700;
         }
         &-descr {
-            font-size: 14px;
             text-align:justify;
+            font-size: 14px;
         }
         &-order {
             display: flex;
@@ -44,14 +44,14 @@
             font-weight: 700;
         }
         &-qtty {
-            color:#8E8D8A;
+            color: $grey-color;
         }
         &-btn {
+            background-color: $red-color-dark;
             width: 140px;
             height: 30px;
             border: none;
             border-radius: 10px;
-            background-color: #E85A4F;
             text-transform: uppercase;
             font-weight: 700;
         }

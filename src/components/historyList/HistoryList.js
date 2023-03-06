@@ -13,6 +13,7 @@ const HistoryList = () => {
     const presentOrdersContent = getListOfItems(listPresent);
     const pastOrdersContent = getListOfItems(listPast);
 
+    
     return (
         <div className='history__list'>
             <div className='history__list-present'>

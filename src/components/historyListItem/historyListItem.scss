@@ -1,4 +1,4 @@
-
+@import '../../style/base/variables.scss';
 
 .history {
     &__item {
@@ -7,33 +7,32 @@
             margin: 0 auto;
             margin-top: 10px;
             display: block;
+            background-color: $red-color;
             width: 100%;
             height: 1px;
-            background-color: #E98074;
-
         }
         &-data {
             display: flex;
             justify-content: space-between;
         }
         &-date, &-amount {
-            font-size: 17px;
-            font-weight: 700;
             text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 700;
         }
         &-id {
-            color: #8E8D8A;
+            font-size: 14px;
+            color: $grey-color;
         }
-        // &-amount {
-        //     font-size: 17px;
-        //     font-weight: 700;
-        // }
         &-address {
             margin-top: 5px;
+            font-size: 14px;
         }
         &-shop {
             margin-top: 5px;
-            color: #E98074;
+            text-transform: uppercase;
+            font-size: 16px;
+            color: $red-color;
         }
         &-goods {
             list-style: none;
@@ -43,6 +42,7 @@
             display: flex;
             justify-content: space-between;
             width: 320px;
+            font-size: 14px;
         }
     }
 }

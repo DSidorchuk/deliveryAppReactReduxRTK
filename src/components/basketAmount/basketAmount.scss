@@ -1,3 +1,4 @@
+@import '../../style/base/variables.scss';
 
 .cart {
     &__amount {
@@ -6,15 +7,14 @@
         flex-direction: column;
         align-items: flex-end;
         justify-content: space-between;
-        font-size: 20px;
-        font-weight: 700;
         &-num {
             display: flex;
             justify-content: space-between;
             width: 250px;
             font-size: 18px;
+            font-weight: 700;
             &:nth-last-child(2) {
-                color: #E85A4F;
+                color: $red-color-dark;
             }
         }
     }

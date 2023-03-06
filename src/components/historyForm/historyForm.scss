@@ -1,3 +1,4 @@
+@import '../../style/base/variables.scss';
 
 .history {
     &__form {
@@ -6,36 +7,35 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
+        background-color: $red-color-dark;
         width: 950px;
         height: 100%;
-        background-color: #E85A4F;
         border-radius: 20px;
-
         &-title {
-            color: #EAE7DC;
-            font-size: 20px;
-            text-transform: uppercase;
             text-align: center;
+            text-transform: uppercase;
+            font-size: 18px;
+            color: $bg-color;
         }
-
         &-input {
             margin: 0 auto;
             padding: 0;
             padding-left: 15px;
             display: block;
+            background-color: $bg-color;
             width: 508px;
             height: 30px;
             border: none;
             border-radius: 10px;
-            background-color: #EAE7DC;
+            font-size: 14px;
         }
-
         &-btn {
+            background-color: $bg-color-dark;
             width: 140px;
             height: 30px;
             border: none;
             border-radius: 10px;
-            background-color: #D8C3A5;
+            font-size: 16px;
             font-weight: 700;
         }
     }

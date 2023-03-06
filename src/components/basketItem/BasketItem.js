@@ -4,12 +4,14 @@ import { incrQtty, decrQtty } from "../goodsList/goodsSlice";
 
 import "./basketItem.scss";
 
+
 const BasketItem = ({id, image, name, price, qtty}) => {
 
     const dispatch = useDispatch();
 
     const amount = price * qtty;
 
+    
     const onIncr = (id) => {
         dispatch(incrQtty(id));
     }
@@ -17,6 +19,7 @@ const BasketItem = ({id, image, name, price, qtty}) => {
         dispatch(decrQtty(id));
     }
 
+    
     return (
         <div className="basketItem">
             <div className="basketItem__descr">

@@ -1,3 +1,4 @@
+@import '../../style/base/variables.scss';
 
 .header {
     &__grid {
@@ -9,48 +10,48 @@
         margin-top: 30px;
         height: 80px;
         ul {
-            border: 1px solid  #E85A4F;
-            border-radius: 10px;
             display: flex;
             justify-content: space-around;
             align-items: center;
+            border: 1px solid  $red-color-dark;
+            border-radius: 10px;
         }
         &-item {
             position: relative;
             a {
-                text-decoration: none;
-                color: black;
-                font-size: 25px;
                 text-transform: uppercase;
+                text-decoration: none;
+                font-size: 25px;
                 font-weight: 700;
+                color: black;
                 &:hover {
                     transition: all 0.6s;
-                    color: #E85A4F;
+                    color: $red-color-dark;
                 }
             }
         }
     }
     &__wrap {
         margin-bottom: 11px;
+        background-color: $red-color-dark;
         position: relative;
-        height: 1px;
         width: 100%;
-        background-color: #E85A4F;
+        height: 1px;
     }
     &__btn {
+        margin: 0 auto;
         display: none;
+        background-color: $bg-color;
         position: absolute;
         right: 50%;
         top: -15px;
         transform: translateX(50%);
-        width: 90px;
+        width: 170px;
         height: 30px;
-        margin: 0 auto;
-        border: 1px solid #E85A4F;
-        background-color: #EAE7DC;
+        border: 1px solid $red-color-dark;
         border-radius: 8px;
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 16px;
         font-weight: 700;
         &_active {
             display: block;
@@ -61,13 +62,13 @@
 .basket_active {
     &::after {
         content: '';
+        background-color: $red-color-dark;
         position: absolute;
         right: -8px;
         top: 1px;
         z-index: -1;
         width: 20px;
         height: 20px;
-        background-color: #E85A4F;
         border-radius: 100%
     }
   }

@@ -3,6 +3,7 @@ import { dateParser } from "../../utilities/dateParser"
 
 import "./historyListItem.scss"
 
+
 const HistoryListItem = ({date, id, address, amount, shop, orderList}) => {
 
     const shortDate = dateParser(date);
@@ -14,6 +15,7 @@ const HistoryListItem = ({date, id, address, amount, shop, orderList}) => {
             </li>
         )
     })
+
 
     return (
         <div className="history__item">

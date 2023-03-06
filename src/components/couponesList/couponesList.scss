@@ -1,4 +1,4 @@
-
+@import '../../style/base/variables.scss';
 
 .coupones {
     &__list{
@@ -13,13 +13,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid #8E8D8A;
+            border: 1px solid $grey-color;
             border-radius: 14px;
             text-align: center;
+            font-size: 18px;
             &:nth-child(odd) {
-                background-color: #E85A4F;
+                background-color: $red-color-dark;
                 border: none;
-                color: #EAE7DC;
+                color: $bg-color;
             }
         }
     }
