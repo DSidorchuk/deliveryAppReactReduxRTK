@@ -7,3 +7,22 @@
         column-gap: 40px;
     }
 }
+
+@media (max-width: 1200px){
+    .store {
+        &__grid {
+            grid-template-columns: 160px 780px;
+            column-gap: 20px;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .store {
+        &__grid {
+            margin-top: 0;
+            grid-template-columns: 155px 550px;
+            column-gap: 15px;
+        }
+    }
+}

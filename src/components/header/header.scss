@@ -72,3 +72,23 @@
         border-radius: 100%
     }
   }
+
+  @media (max-width: 992px){
+    .header {
+        &__grid {
+            grid-template-columns: 500px auto;
+        }
+        &__menu {
+            &-item {
+                position: relative;
+                a {
+                    font-size: 22px;
+                }
+            }
+        }
+        &__btn {
+            width: 145px;
+            font-size: 14px;
+        }
+    }
+  }

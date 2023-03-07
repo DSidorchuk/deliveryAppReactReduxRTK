@@ -7,3 +7,13 @@
         row-gap: 40px;
     }
 }
+
+@media (max-width: 992px) {
+    .history {
+        &__grid {
+            margin-top: 0;
+            grid-template-rows: 50px 1fr;
+            row-gap: 20px;
+        }
+    }
+}

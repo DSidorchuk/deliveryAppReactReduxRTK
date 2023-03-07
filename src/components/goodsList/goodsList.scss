@@ -12,3 +12,17 @@
     border: 1px solid  $red-color-dark;
     border-radius: 20px;
 }
+
+@media (max-width: 1200px){
+    .goods {
+        padding: 20px 10px 20px 10px;
+        grid-template-columns: repeat(3, 235px);
+        column-gap: 10px;
+    }
+}
+
+@media (max-width: 992px){
+    .goods {
+        grid-template-columns: repeat(2, 250px);
+    }
+}
