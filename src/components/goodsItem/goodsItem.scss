@@ -80,3 +80,29 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .goods {
+        &__item {
+            grid-template-rows: 200px 20px 60px auto;
+            row-gap: 12px;
+            width: 100%;
+            min-height: 280px;
+            &-title {
+                font-size: 14px;
+            }
+            &-descr {
+                font-size: 12px;
+            }
+            &-price {
+                font-size: 14px;
+            }
+            &-qtty {
+                font-size: 12px;
+            }
+            &-btn {
+                font-size: 14px;
+            }
+        }
+    }
+}

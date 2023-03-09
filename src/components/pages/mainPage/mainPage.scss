@@ -26,3 +26,16 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .store {
+        &__grid {
+            margin-top: 10px;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: minmax(50px, auto) 1fr;
+            row-gap: 20px;
+        }
+    }
+    
+}

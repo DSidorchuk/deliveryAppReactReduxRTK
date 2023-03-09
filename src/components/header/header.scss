@@ -92,3 +92,24 @@
         }
     }
   }
+
+  @media (max-width: 768px) {
+    .header {
+        &__grid {
+            grid-template-columns: 1fr;
+        }
+        &__menu {
+            margin-top: 10px;
+            height: 40px;
+            &-item {
+                position: relative;
+                a {
+                    font-size: 18px;
+                }
+            }
+        }
+        &__wrap {
+            display: none;
+        }
+    }
+  }

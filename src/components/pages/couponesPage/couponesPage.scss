@@ -26,3 +26,15 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .coupones {
+        margin-top: 10px;
+        &__title {
+            font-size: 16px;
+        }
+        &__msg {
+            font-size: 12px;
+        }
+    }
+}

@@ -1,7 +1,7 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 
-import { clearBasket } from '../goodsList/goodsSlice';
+import ClearButton from '../clearButton/ClearButton';
 
 import './header.scss';
 
@@ -9,13 +9,7 @@ import './header.scss';
 const Header = () => {
 
     const emptyBasket = useSelector(state => state.goods.basket.length);
-    const dispatch = useDispatch();
 
-    const onClick = () => {
-        dispatch(clearBasket());
-    }
-
-    
     return (
         <header className='header'>
             <div className='container header__grid'>
@@ -54,12 +48,7 @@ const Header = () => {
                     </ul>
                 </nav>
                 <div className='header__wrap'>
-                    <button className={!emptyBasket 
-                                        ? "header__btn" 
-                                        : "header__btn header__btn_active"}
-                            onClick={onClick}>
-                        очистити кошик 
-                    </button>
+                    <ClearButton clazz="header__btn" />        
                 </div>
             </div>
         </header>

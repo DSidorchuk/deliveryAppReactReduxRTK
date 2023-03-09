@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import MediaQuery from 'react-responsive';
 
 import { fetchShops, setActiveShop } from './shopListSlice';
 import { setContent } from '../../utilities/setContent';
+import ClearButton from '../clearButton/ClearButton';
 
 import './shopList.scss';
 
@@ -12,7 +14,7 @@ const ShopList = () => {
     const shopsList = useSelector(state => state.shops.shops);
     const activeShop = useSelector(state => state.shops.activeShop);
     const orderFromShop = useSelector(state => state.goods.orderFromShop);
-    const shopsLoadingStatus = useSelector(state => state.shops.shopsLoadingStatus)
+    const shopsLoadingStatus = useSelector(state => state.shops.shopsLoadingStatus);
     const dispatch = useDispatch();
     
 
@@ -58,6 +60,9 @@ const ShopList = () => {
             <ul className='shops__list'>
                 {content}
             </ul>
+            <MediaQuery minWidth={577} maxWidth={768}>
+                <ClearButton clazz='shops__clear'/>
+            </MediaQuery>
         </div>
     )
 }

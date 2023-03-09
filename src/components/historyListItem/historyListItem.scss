@@ -63,3 +63,23 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .history {
+        &__item {
+            &-date, &-amount {
+                font-size: 12px;
+            }
+            &-id {
+                font-size: 11px;
+                color: $grey-color;
+            }
+            &-shop {
+                font-size: 14px;
+            }
+            &-product {
+                font-size: 12px;
+            }
+        }
+    }
+}

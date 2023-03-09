@@ -37,3 +37,13 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .history {
+        &__list {
+            &-title {
+                font-size: 14px;
+            }
+        }
+    }
+}

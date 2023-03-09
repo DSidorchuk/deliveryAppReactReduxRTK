@@ -26,3 +26,13 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .cart {
+        &__grid {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, minmax(200px, auto));
+            row-gap: 20px;
+        }
+    }
+}

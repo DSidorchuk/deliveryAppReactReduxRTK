@@ -31,3 +31,17 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .cart {
+        &__amount {
+            margin: 20px 0;
+            align-items: center;
+            &-num {
+                display: flex;
+                justify-content: space-between;
+                font-size: 14px;
+            }
+        }
+    }
+}

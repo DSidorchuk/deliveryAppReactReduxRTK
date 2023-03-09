@@ -39,3 +39,13 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .coupones {
+        &__list{
+            &-item{
+                font-size: 12px;
+            }
+        }
+    }
+}
