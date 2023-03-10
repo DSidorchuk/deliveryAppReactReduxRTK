@@ -60,7 +60,7 @@ const ShopList = () => {
             <ul className='shops__list'>
                 {content}
             </ul>
-            <MediaQuery minWidth={577} maxWidth={768}>
+            <MediaQuery maxWidth={768}>
                 <ClearButton clazz='shops__clear'/>
             </MediaQuery>
         </div>

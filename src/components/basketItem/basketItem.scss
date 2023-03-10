@@ -125,3 +125,23 @@
         justify-content: center;
     }
 }
+
+@media (max-width: 577px) {
+    .basketItem {
+        grid-template-columns: 125px 190px;
+        height: 40px;
+        &__descr {
+            grid-template-columns: 1fr;
+        }
+        &__img {
+            display: none;
+        }
+        &__title {
+            font-size: 14px;
+        }
+        &__volume {
+            grid-template-columns: 55px 68px 55px;
+            column-gap: 5;
+        }
+    }
+}

@@ -74,3 +74,19 @@
         }
     }
 }
+
+@media (max-width: 577px) {
+    .shops {
+        width: 100%;
+        &__list {
+            flex-direction: column;
+        }
+        &__clear {
+            margin-top: 20px;
+            
+            &_active {
+                display: block;
+            }
+        }
+    }
+}

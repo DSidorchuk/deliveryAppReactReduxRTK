@@ -36,3 +36,11 @@
         }
     }
 }
+
+@media (max-width: 577px) {
+    .cart {
+        &__grid {
+            margin-top: 50px;
+        }
+    }
+}

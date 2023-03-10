@@ -26,3 +26,10 @@
         grid-template-columns: repeat(2, 250px);
     }
 }
+
+@media (max-width: 577px){
+    .goods {
+        padding: 10px;
+        grid-template-columns: 1fr;
+    }
+}

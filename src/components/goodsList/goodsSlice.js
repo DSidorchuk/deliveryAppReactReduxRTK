@@ -100,6 +100,9 @@ const goodsSlice = createSlice({
                 ? state.basket = state.basket.filter(item => item.id !== action.payload)
                 : state.basket[index].qtty--;
             state.basketAmount = calculateAmount(state.basket);
+            if(!state.basket.length) {
+                state.orderFromShop = '';
+            }
         },
         setDiscount: (state, action) => {state.discount = action.payload}
     },
