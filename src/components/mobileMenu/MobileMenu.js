@@ -2,6 +2,7 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 import './mobileMenu.scss';
+import home from '../../assets/home.svg';
 
 const MobileMenu = () => {
 
@@ -12,6 +13,9 @@ const MobileMenu = () => {
 
     return (
         <>
+            <NavLink to="/">
+                <img src={home} alt="home" className='home'/>
+            </NavLink>
             <nav className={active ? 'menu menu_active' : 'menu' }
                  onClick={toggleClass}>
                 <NavLink to="/" 

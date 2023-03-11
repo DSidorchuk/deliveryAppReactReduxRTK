@@ -17,3 +17,14 @@
         }
     }
 }
+
+@media (max-width: 576px) {
+    .history {
+        &__grid {
+            margin-top: 50px;
+            grid-template-rows: minmax(50px, auto) 1fr;
+            grid-template-columns: 1fr;
+            row-gap: 20px;
+        }
+    }
+}

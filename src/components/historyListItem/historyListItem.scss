@@ -67,18 +67,43 @@
 @media (max-width: 768px) {
     .history {
         &__item {
+            &-data {
+                flex-direction: column;
+                gap: 7px;
+            }
             &-date, &-amount {
-                font-size: 12px;
+                font-size: 14px;
             }
             &-id {
-                font-size: 11px;
+                font-size: 14px;
                 color: $grey-color;
             }
             &-shop {
                 font-size: 14px;
             }
             &-product {
-                font-size: 12px;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+@media (max-width: 576px) {
+    .history {
+        &__item {
+            &-data {
+                flex-direction: column;
+                gap: 7px;
+            }
+            &-shop {
+                font-size: 14px;
+            }
+            &-goods {
+                margin-top: 10px;
+            }
+            &-product {
+                margin-left: 0;
+                width: 300px;
             }
         }
     }

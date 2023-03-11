@@ -34,7 +34,13 @@
             font-size: 16px;
         }
         &__msg {
-            font-size: 12px;
+            font-size: 14px;
         }
+    }
+}
+
+@media (max-width: 576px) {
+    .coupones {
+        margin-top: 80px;
     }
 }

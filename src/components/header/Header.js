@@ -14,7 +14,7 @@ const Header = () => {
 
     return (
         <>
-            <MediaQuery minWidth={578}>
+            <MediaQuery minWidth={577}>
                 <header className='header'>
                     <div className='container header__grid'>
                         <nav className='header__menu'>
@@ -57,7 +57,7 @@ const Header = () => {
                     </div>
                 </header>
         </MediaQuery>
-        <MediaQuery maxWidth={577}>
+        <MediaQuery maxWidth={576}>
             <MobileMenu/>                      
         </MediaQuery>
         </>
