@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 
 import BasketForm from '../../basketForm/BasketForm';
 import Basket from '../../basket/Basket';
@@ -10,6 +11,13 @@ const BasketPage = () => {
 
     return (
         <div className='cart'>
+            <Helmet>
+                <meta
+                    name="description"
+                    content="Shopping cart or basket page" 
+                    />
+                <title>Кошик</title>
+            </Helmet>
             <div className='container'>
                 <div className='cart__grid'>
                     <BasketForm/>

@@ -1,26 +1,9 @@
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
 
-import Menu from '../menu/Menu';
-import home from '../../assets/home.svg';
-import './mobileMenu.scss';
-
-
-const MobileMenu = () => {
-
-    const [active, setActive] = useState(false);
-    const toggleClass = () => {
-        setActive(!active);
-    }
-
+const Menu = () => {
     return (
         <>
-            <NavLink to="/">
-                <img src={home} alt="home" className='home'/>
-            </NavLink>
-            <nav className={active ? 'menu menu_active' : 'menu' }
-                 onClick={toggleClass}>
-                {/* <NavLink to="/" 
+                <NavLink to="/" 
                          style={({isActive}) => 
                                 isActive ? {color: '#E85A4F'} : undefined}>
                     Заклади
@@ -39,17 +22,9 @@ const MobileMenu = () => {
                          style={({isActive}) => 
                                 isActive ? {color: '#E85A4F'} : undefined}>
                     акції
-                </NavLink> */}
-                <Menu/>
-            </nav>
-            <div className={active ? 'hamburger hamburger_active' : 'hamburger' }
-                 onClick={toggleClass}>
-                <span></span>
-                <span></span>  
-                <span></span>                
-            </div>
+                </NavLink>
         </>
     )
 }
 
-export default MobileMenu;
+export default Menu;

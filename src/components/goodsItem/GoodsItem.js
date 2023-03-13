@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import MediaQuery from 'react-responsive';
 
 import { setOrderFromShop, addToBasket } from '../goodsList/goodsSlice';
 
@@ -19,9 +20,11 @@ const GoodsItem = ({item}) => {
     const qtty = basketItem ? basketItem.qtty : '';
 
     // Show short descrtiption of item
-    const shortDescr = description.length > 110 
-    ? description.slice(0, 110) + '...'
-    : description;
+    const shortDescr = (length) => {
+        return description.length > length 
+        ? description.slice(0, length) + '...'
+        : description;
+    }
 
     // Goods can be added from single shop only
     const addItemToBasket = (item) => {
@@ -39,9 +42,19 @@ const GoodsItem = ({item}) => {
             <Link to={`/${activeShop}/${id}`}>
                 <img className="goods__item-img" src={image} alt={name} />
             </Link>
-            
             <h3 className="goods__item-title">{name}</h3>
-            <p className='goods__item-descr'>{shortDescr}</p>
+            <MediaQuery minWidth={1201}>
+                <p className='goods__item-descr'>{shortDescr(110)}</p>
+            </MediaQuery>
+            <MediaQuery minWidth={769} maxWidth={1200}>
+                <p className='goods__item-descr'>{shortDescr(95)}</p>
+            </MediaQuery>
+            <MediaQuery minWidth={577} maxWidth={768}>
+                <p className='goods__item-descr'>{shortDescr(120)}</p>
+            </MediaQuery>
+            <MediaQuery minWidth={320} maxWidth={576}>
+                <p className='goods__item-descr'>{shortDescr(150)}</p>
+            </MediaQuery>
             <div className='goods__item-order'>
                 <p className='goods__item-price'>{price} ГРН</p>
                 <p className='goods__item-qtty'>{qtty}</p>
