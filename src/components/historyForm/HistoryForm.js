@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { Formik, Form, Field, ErrorMessage as FormikErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage  } from 'formik';
 import * as Yup from 'yup';
 
 import { getOrders, checkUserOrders } from '../historyList/historySlice';
@@ -32,7 +32,7 @@ const HistoryForm = () => {
                 phone: Yup.string()
                     .min(10, "Неповний номер")
                     .matches(phoneRegExp, "Некоректний номер")
-                    .required("Необхідно заповнити"), 
+                    // .required("Необхідно заповнити"), 
             })}
             onSubmit = {(data, {resetForm}) => {
                 findOrder(data);
@@ -46,6 +46,7 @@ const HistoryForm = () => {
                        name="phone"
                        type="phone"
                        placeholder="Введіть телефон за яким ви робили замовлення"/>
+                <ErrorMessage className="history__form-error" name="phone" component="div"/>
                 <button className='history__form-btn'
                         type='submit'>Пошук</button>
             </Form>

@@ -11,7 +11,7 @@ export const fetchShops = createAsyncThunk(
     'shops/fetchShops',
     () => {
         const {request} = useHttp();
-        return request("http://localhost:3001/shops");
+        return request("http://ec2-18-193-94-131.eu-central-1.compute.amazonaws.com/shops");
     }
 )
 
@@ -39,4 +39,3 @@ const {actions, reducer} = shopsSlice;
 export default reducer;
 
 export const {setActiveShop} = actions;
-
