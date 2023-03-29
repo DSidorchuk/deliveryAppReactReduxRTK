@@ -78,6 +78,7 @@
 @media (max-width: 576px) {
     .shops {
         width: 100%;
+        border-radius: 15px;
         &__list {
             flex-direction: column;
         }

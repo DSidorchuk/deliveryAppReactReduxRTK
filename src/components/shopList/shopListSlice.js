@@ -11,7 +11,7 @@ export const fetchShops = createAsyncThunk(
     'shops/fetchShops',
     () => {
         const {request} = useHttp();
-        return request("http://ec2-18-193-94-131.eu-central-1.compute.amazonaws.com/shops");
+        return request("http://18.193.94.131/shopslist");
     }
 )
 

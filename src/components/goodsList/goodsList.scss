@@ -4,8 +4,6 @@
     padding: 20px;
     display: grid;
     grid-template-columns: repeat(3, 270px);
-    // grid-template-rows: repeat(3, 400px);
-    // grid-auto-rows: 400px;
     column-gap: 20px;
     row-gap: 20px;
     justify-content: center;
@@ -31,5 +29,10 @@
     .goods {
         padding: 10px;
         grid-template-columns: 1fr;
+        &__item {
+            &-order {
+                align-items: center;
+            }
+        }
     }
 }

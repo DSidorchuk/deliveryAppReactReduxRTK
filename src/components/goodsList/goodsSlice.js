@@ -20,7 +20,7 @@ export const fetchGoods = createAsyncThunk(
     "goods/fetchGoods",
     (shop) => {
         const {request} = useHttp();
-        return request(`http://ec2-18-193-94-131.eu-central-1.compute.amazonaws.com/${shop}`);
+        return request(`http://18.193.94.131/products?shop=${shop}`);
     }
 )
 
@@ -29,7 +29,7 @@ export const fetchCoupones = createAsyncThunk(
     "goods/fetchCoupones",
     () => {
         const {request} = useHttp();
-        return request(`http://ec2-18-193-94-131.eu-central-1.compute.amazonaws.com/coupones`);
+        return request(`http://18.193.94.131/coupones`);
     }
 )
 
@@ -38,7 +38,7 @@ export const fetchProduct = createAsyncThunk(
     "goods/fetchProduct",
     (item) => {
         const {request} = useHttp();
-        return request(`http://ec2-18-193-94-131.eu-central-1.compute.amazonaws.com/${item}`);
+        return request(`http://18.193.94.131/product/${item}`);
     }
 )
 

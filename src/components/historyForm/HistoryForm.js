@@ -14,14 +14,9 @@ const HistoryForm = () => {
 
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-    useEffect(() => {
-        dispatch(getOrders());
-    }, [])
-    
     const findOrder = (num) => {
-        dispatch(checkUserOrders(num));
+        dispatch(getOrders(num.phone));
     }
-
 
     return (
         <Formik 
@@ -32,7 +27,6 @@ const HistoryForm = () => {
                 phone: Yup.string()
                     .min(10, "Неповний номер")
                     .matches(phoneRegExp, "Некоректний номер")
-                    // .required("Необхідно заповнити"), 
             })}
             onSubmit = {(data, {resetForm}) => {
                 findOrder(data);
